@@ -4,9 +4,11 @@
 \name{grandview}
 \alias{grandview}
 \alias{grandview-package}
-\title{...}
+\title{Provides Dedicated, Platform-Specific Viewers for 'httpgd' Graphics Devices}
 \description{
-A good description goes here otherwise CRAN checks fail.
+The 'httpgd' packages provides a super-fast, asynchronous graphics device for R graphics
+via 'svglite' and 'later' packages. Tools are provided to use dedicated, platform-specific
+graphics "browsers" for 'httpgd' graphics devices.
 }
 \seealso{
 Useful links:

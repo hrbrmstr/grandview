@@ -1,6 +1,6 @@
 Package: grandview
 Type: Package
-Title: grandview title goes here otherwise CRAN checks fail
+Title: Provides Dedicated, Platform-Specific Viewers for 'httpgd' Graphics Devices
 Version: 0.1.0
 Date: 2020-05-31
 Authors@R: c(
@@ -8,17 +8,21 @@ Authors@R: c(
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
 Maintainer: Bob Rudis <bob@rud.is>
-Description: A good description goes here otherwise CRAN checks fail.
+Description: The 'httpgd' packages provides a super-fast, asynchronous graphics device for R graphics
+    via 'svglite' and 'later' packages. Tools are provided to use dedicated, platform-specific 
+    graphics "browsers" for 'httpgd' graphics devices.
 URL: https://git.rud.is/hrbrmstr/grandview
 BugReports: https://git.rud.is/hrbrmstr/grandview/issues
 Encoding: UTF-8
-License: AGPL
+License: MIT + file LICENSE
 Suggests: 
     covr, tinytest
 Depends: 
-    R (>= 3.2.0)
+    R (>= 4.0.0)
 Imports: 
-    httr,
-    jsonlite
+    httpgd,
+    tools
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
+Remotes:
+  nx10/httpgd
