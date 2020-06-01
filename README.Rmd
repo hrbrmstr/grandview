@@ -15,6 +15,22 @@ hrbrpkghelpr::stinking_badges()
 hrbrpkghelpr::yank_title_and_description()
 ```
 
+This is an EXPERIMENTAL standalone viewer, written in Go, for the super-cool 
+{httpgd} package `remotes::install_github("nx10/httpgd")`.
+
+The Windows viewer is not built yet because I haven't got round to it because
+I detest Windows.
+
+The goal is to have a "Quartz"-like window (for folks familiar with that on macOS) with full functionality. Right now, it's just a basic viewer (and 'save' doesn't work for some reason that I'm trying to figure out.)
+
+If I were you, I wouldn't waste time on this package as it'll likely just get Sherlocked w/o notice by RStudio at some point and baked into their ecosystem. I made it mainly for myself as I also detest using the "browser for research" as an application runner.
+
+I'm also just as likely to add an {httpgd} viewer functionality into RSwitch since it already functions as an RStudio Server client and it won't take much to have it work with {httpgd} directly (or via this package).
+
+If you don't trust the pre-built viewers, `tools-raw` has what you need to make your own. They go into `tools::R_user_dir(package = "grandview"), "app")` and for the macOS one you'll need to use your own signing cert (you may need to right-click open my built one once due to faux security theatre by Apple).
+
+Because I rely on `tools::R_user_dir()` this package requires R 4.0.0+. That was a deliberate choice since the adoption rate for R 4.0.0+ is likely low (so I have time to refine this package) and I'd rather rely on it than {rappdirs}.
+
 ## What's Inside The Tin
 
 The following functions are implemented:
@@ -37,6 +53,16 @@ library(grandview)
 # current version
 packageVersion("grandview")
 
+```
+
+```{r eval=FALSE}
+install_viewer() # you'll get prompts to do this
+
+hgd() # it accepts params which will get passed to the viewer
+
+# plot stuff
+
+dev.off()
 ```
 
 ## grandview Metrics

@@ -57,3 +57,12 @@ need to include this token to be allowed. (Either in a request header
 \description{
 Initialize httpgd graphics device, start server, and launch viewer.
 }
+\examples{
+\dontrun{
+
+hgd() # instead of httpgd()
+# plot stuff
+dev.off()
+# close the viewer window manually for now
+}
+}

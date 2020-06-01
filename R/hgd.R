@@ -26,6 +26,13 @@
 #'   (X-HTTPGD-TOKEN) field or as a query parameter.)
 #'
 #' @export
+#' @examples \dontrun{
+#'
+#' hgd() # instead of httpgd()
+#' # plot stuff
+#' dev.off()
+#' # close the viewer window manually for now
+#' }
 hgd <- function(host = "127.0.0.1",
                 port = 8288,
                 width = 720,
@@ -37,6 +44,28 @@ hgd <- function(host = "127.0.0.1",
                 recording = TRUE,
                 cors = FALSE,
                 token = "") {
+
+  if (is_windows()) {
+    message("Windows not supported yet.")
+    return(invisible(NULL))
+  }
+
+  if (!grandview_exists()) {
+
+    message(
+      paste0(strwrap(paste0(c(
+      "{grandview} requires a binary application that you ",
+      "must manually install because of some made up CRAN ",
+      "rules that other, more user-friendly (but user-insecure) ",
+      "environments like Python do not have to abide by. ",
+      "Please run `grandview::install_viewer()` to use this ",
+      "package."
+      ), collaspe = "")), collapse = "\n")
+    )
+
+    return(invisible(NULL))
+
+  }
 
   capture.output(
     httpgd(
@@ -72,16 +101,10 @@ hgd <- function(host = "127.0.0.1",
 
   }
 
-  message("{httpgd} running at ", gd_url)
+  message(
+    "{httpgd} running at ", gd_url, "\n\n",
+    "NOTE: for the time being, you'll have to close the viewer window ",
+    "manually when you close the graphics device in R."
+  )
 
 }
-
-# dir.create(
-#   file.path(tools::R_user_dir(package = "grandview"), "app"),
-#   recursive = TRUE
-# )
-
-
-
-
-

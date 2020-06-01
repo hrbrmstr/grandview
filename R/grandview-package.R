@@ -10,4 +10,7 @@
 #' @author Bob Rudis (bob@@rud.is)
 #' @importFrom httpgd httpgd
 #' @importFrom tools R_user_dir
+#' @importFrom utils unzip
+#' @importFrom httr GET write_disk progress
+#' @importFrom jsonlite fromJSON
 "_PACKAGE"

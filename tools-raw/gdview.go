@@ -22,11 +22,13 @@ func main() {
 		width, _ := strconv.Atoi(args[1])
 		height, _ := strconv.Atoi(args[2])
 
-		debug := true
-
-		w := webview.New(debug)
+		w := webview.New(true)
 
 		defer w.Destroy()
+
+		w.Bind("quit", funct() {
+		  w.Terminate()
+		}
 
 		w.SetTitle("httpgd : " + httpgdURL)
 

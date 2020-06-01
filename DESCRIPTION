@@ -21,7 +21,10 @@ Depends:
     R (>= 4.0.0)
 Imports: 
     httpgd,
-    tools
+    tools,
+    utils,
+    httr,
+    jsonlite
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Remotes:
