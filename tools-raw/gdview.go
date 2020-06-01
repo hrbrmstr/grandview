@@ -26,7 +26,7 @@ func main() {
 
 		defer w.Destroy()
 
-		w.Bind("quit", funct() {
+		w.Bind("quit", func() {
 		  w.Terminate()
 		}
 
